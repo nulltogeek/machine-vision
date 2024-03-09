@@ -6,8 +6,10 @@ import matplotlib.pyplot as plt
 class MonochromeImage:
     def __init__(self, image):
         self.image = image
+
+        # intensity values
         self.blue_channel, self.green_channel, self.red_channel = cv2.split(self.image)
-        self.titles = ["Red", "Green", "Blue"]
+        self.titles = ["Blue", "Green", "Red"]
         self.colors_monochrome = []
 
     def monochrome_red(self):
@@ -31,14 +33,9 @@ class MonochromeImage:
     def show(self):
         fig, axes = plt.subplots(1, 3, figsize=(12, 4))
 
-        axes[0].imshow(cv2.cvtColor(self.colors_monochrome[0], cv2.COLOR_BGR2RGB))
-        axes[0].set_title(self.titles[0])
-
-        axes[1].imshow(cv2.cvtColor(self.colors_monochrome[1], cv2.COLOR_BGR2RGB))
-        axes[1].set_title(self.titles[1])
-
-        axes[2].imshow(cv2.cvtColor(self.colors_monochrome[2], cv2.COLOR_BGR2RGB))
-        axes[2].set_title(self.titles[2])
+        for i in range(3):
+            axes[i].imshow(cv2.cvtColor(self.colors_monochrome[i], cv2.COLOR_BGR2RGB))
+            axes[i].set_title(self.titles[i])
 
         for ax in axes:
             ax.axis("off")
