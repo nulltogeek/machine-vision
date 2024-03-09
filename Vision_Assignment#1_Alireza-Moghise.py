@@ -51,6 +51,6 @@ class MonochromeImage:
 
 monochrome = MonochromeImage(cv2.imread("test.jpg"))
 monochrome.monochrome_blue()
-monochrome.monochrome_red()
 monochrome.monochrome_green()
+monochrome.monochrome_red()
 monochrome.show()
